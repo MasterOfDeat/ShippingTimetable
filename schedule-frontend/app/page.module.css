@@ -1,0 +1,310 @@
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px 48px;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 24px;
+
+  color: #737373;
+
+  font-size: 14px;
+}
+
+.breadcrumbs strong {
+  color: #404040;
+  font-weight: 500;
+}
+
+.breadcrumbs a {
+  color: #737373;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #d9291c;
+}
+
+.title {
+  margin: 0;
+
+  color: #111111;
+
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+.title span {
+  color: #d9291c;
+}
+
+.description {
+  max-width: 680px;
+
+  margin-top: 28px;
+
+  color: #606060;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+
+/* Поиск */
+
+.searchSection {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  padding: 0 24px 80px;
+}
+
+.searchCard {
+  padding: 40px;
+
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.searchHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 32px;
+}
+
+.searchHeader h2 {
+  margin: 0;
+
+  color: #171717;
+
+  font-size: 26px;
+}
+
+.searchHeader p {
+  margin: 8px 0 0;
+
+  color: #737373;
+
+  font-size: 14px;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  color: #d9291c;
+
+  font-size: 22px;
+
+  background: #fff0ee;
+
+  border-radius: 50%;
+}
+
+
+/* Форма */
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.field label {
+  color: #404040;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.field select,
+.field input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  color: #171717;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  background: #f7f7f7;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.field select:focus,
+.field input:focus {
+  background: #ffffff;
+
+  border-color: #d9291c;
+}
+
+.searchFooter {
+  margin-top: 32px;
+  padding-top: 24px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+.searchFooter button {
+  padding: 14px 30px;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  background: #d9291c;
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.searchFooter button:hover {
+  background: #b91f15;
+
+  transform: translateY(-1px);
+}
+
+
+/* О сервисе */
+
+.aboutSection {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  padding: 0 24px 20px;
+}
+
+.aboutCard {
+  padding: 48px;
+
+  color: #ffffff;
+
+  background: #171717;
+
+  border-radius: 28px;
+}
+
+.aboutLabel {
+  margin: 0 0 12px;
+
+  color: #ef6259;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.aboutCard h2 {
+  max-width: 650px;
+
+  margin: 0;
+
+  font-size: 36px;
+
+  line-height: 1.2;
+}
+
+.aboutText {
+  max-width: 700px;
+
+  margin-top: 20px;
+
+  color: #a3a3a3;
+
+  line-height: 1.7;
+}
+
+
+/* Адаптивность */
+
+@media (max-width: 1000px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    padding-top: 56px;
+  }
+
+  .title {
+    letter-spacing: -1px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .searchCard {
+    padding: 24px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .searchFooter button {
+    width: 100%;
+  }
+
+  .aboutCard {
+    padding: 32px 24px;
+  }
+
+  .aboutCard h2 {
+    font-size: 28px;
+  }
+}

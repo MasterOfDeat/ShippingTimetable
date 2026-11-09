@@ -1,7 +1,22 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 
-export default function Home() {
+type SearchParams = {
+  origin?: string;
+  destination?: string;
+  dateFrom?: string;
+  dateTo?: string;
+};
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}) {
+  const params = await searchParams;
+
+  const { origin, destination, dateFrom, dateTo } = params;
+
   return (
     <>
       <section className={styles.hero}>
@@ -18,9 +33,8 @@ export default function Home() {
           </h1>
 
           <p className={styles.description}>
-            Выберите порт отправления, порт назначения и период поездки.
-            Сервис покажет доступные варианты и поможет подобрать удобный
-            маршрут.
+            Выберите порт отправления, порт назначения и период поездки. Сервис
+            покажет доступные варианты и поможет подобрать удобный маршрут.
           </p>
         </div>
       </section>
@@ -36,94 +50,73 @@ export default function Home() {
             <div className={styles.arrow}>↗</div>
           </div>
 
-          <div className={styles.formGrid}>
-            <div className={styles.field}>
-              <label htmlFor="departurePort">
-                Откуда
-              </label>
+          <form action="/search" method="GET">
+            <div className={styles.formGrid}>
+              <div className={styles.field}>
+                <label htmlFor="departurePort">Откуда</label>
 
-              <select id="departurePort" defaultValue="">
-                <option value="" disabled>
-                  Выберите порт
-                </option>
+                <select
+                  id="departurePort"
+                  name="origin"
+                  defaultValue={origin ?? ""}
+                  required
+                >
+                  <option value="" disabled>
+                    Выберите порт
+                  </option>
 
-                <option value="klaipeda">
-                  Клайпеда
-                </option>
+                  <option value="CNSHA">Шанхай (CNSHA)</option>
 
-                <option value="kiel">
-                  Киль
-                </option>
+                  <option value="CNNGB">Нинбо (CNNGB)</option>
+                </select>
+              </div>
 
-                <option value="stockholm">
-                  Стокгольм
-                </option>
+              <div className={styles.field}>
+                <label htmlFor="arrivalPort">Куда</label>
 
-                <option value="helsinki">
-                  Хельсинки
-                </option>
-              </select>
+                <select
+                  id="arrivalPort"
+                  name="destination"
+                  defaultValue={destination ?? ""}
+                  required
+                >
+                  <option value="" disabled>
+                    Выберите порт
+                  </option>
+
+                  <option value="NLRTM">Роттердам (NLRTM)</option>
+                </select>
+              </div>
+
+              <div className={styles.field}>
+                <label htmlFor="dateFrom">Дата с</label>
+
+                <input
+                  id="dateFrom"
+                  name="dateFrom"
+                  type="date"
+                  defaultValue={dateFrom ?? ""}
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label htmlFor="dateTo">Дата по</label>
+
+                <input
+                  id="dateTo"
+                  name="dateTo"
+                  type="date"
+                  defaultValue={dateTo ?? ""}
+                />
+              </div>
             </div>
 
-            <div className={styles.field}>
-              <label htmlFor="arrivalPort">
-                Куда
-              </label>
-
-              <select id="arrivalPort" defaultValue="">
-                <option value="" disabled>
-                  Выберите порт
-                </option>
-
-                <option value="klaipeda">
-                  Клайпеда
-                </option>
-
-                <option value="kiel">
-                  Киль
-                </option>
-
-                <option value="stockholm">
-                  Стокгольм
-                </option>
-
-                <option value="helsinki">
-                  Хельсинки
-                </option>
-              </select>
+            <div className={styles.searchFooter}>
+              <button type="submit">Найти рейсы</button>
             </div>
-
-            <div className={styles.field}>
-              <label htmlFor="dateFrom">
-                Дата с
-              </label>
-
-              <input
-                id="dateFrom"
-                type="date"
-              />
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="dateTo">
-                Дата по
-              </label>
-
-              <input
-                id="dateTo"
-                type="date"
-              />
-            </div>
-          </div>
-
-          <div className={styles.searchFooter}>
-            <button type="button">
-              Найти рейсы
-            </button>
-          </div>
+          </form>
         </div>
       </section>
-
     </>
   );
 }

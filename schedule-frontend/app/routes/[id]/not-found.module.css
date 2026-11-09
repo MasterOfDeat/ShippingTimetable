@@ -1,0 +1,67 @@
+.page {
+  min-height: 60vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+
+  padding: 48px 32px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+  border-radius: 24px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.code {
+  color: #d9291c;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card h1 {
+  margin: 12px 0;
+
+  color: #171717;
+
+  font-size: 32px;
+}
+
+.card p {
+  margin: 0 0 28px;
+
+  color: #737373;
+
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+
+  padding: 12px 20px;
+
+  color: #ffffff;
+
+  font-weight: 600;
+  text-decoration: none;
+
+  background: #d9291c;
+
+  border-radius: 10px;
+}
+
+.button:hover {
+  background: #b91f15;
+}

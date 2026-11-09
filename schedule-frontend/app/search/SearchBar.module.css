@@ -1,0 +1,112 @@
+.searchBar {
+  display: grid;
+
+  grid-template-columns:
+    minmax(160px, 1fr)
+    auto
+    minmax(160px, 1fr)
+    minmax(140px, 0.8fr)
+    minmax(140px, 0.8fr)
+    auto;
+
+  align-items: end;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+  border-radius: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.field label {
+  color: #737373;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.field select,
+.field input {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  color: #171717;
+
+  background: #f7f7f7;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+
+  outline: none;
+}
+
+.field select:focus,
+.field input:focus {
+  background: #ffffff;
+  border-color: #d9291c;
+}
+
+.arrow {
+  padding-bottom: 11px;
+
+  color: #d9291c;
+
+  font-size: 20px;
+}
+
+.searchButton {
+  padding: 11px 22px;
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+  background: #d9291c;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background: #b91f15;
+}
+
+@media (max-width: 900px) {
+  .searchBar {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchBar {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+    padding: 16px;
+  }
+}
